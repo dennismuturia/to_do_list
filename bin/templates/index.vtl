@@ -1,16 +1,5 @@
-<h1>Task list!</h1>
-#if ($task)
-  <p>Current task:</p>
-  <p>$task.getDescription()</p>
-#else
-  <p>No tasks!</p>
-#end
+<h2>Welcome to our to do list application</h2>
 
-<p>Add a new Task:</p>
 
-<form action="/tasks" method="post">
-  <label for="description">Task Description</label>
-  <input id="description" name="description" type="text">
-
-  <button type="submit" class="btn btn-default">Add task</button>
-</form>
+<a href="/tasks/new">Add a new task</a>
+<a href="/tasks">View all current tasks</a>
