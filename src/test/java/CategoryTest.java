@@ -33,4 +33,17 @@ public class CategoryTest {
     Category secondCategory = new Category("Work");
     assertEquals(Category.find(secondCategory.getId()), secondCategory);
   }
+  @Test
+  public void getTasks_initiallyReturnsEmptyList_ArrayList() {
+    Category.clear();
+    Category testCategory = new Category("Home");
+    assertEquals(0, testCategory.getTasks().size());
+  }
+  @Test
+  public void addTask_addsTaskToList_true() {
+    Category testCategory = new Category("Home");
+    Task testTask = new Task("Mow the lawn");
+    testCategory.addTask(testTask);
+    assertTrue(testCategory.getTasks().contains(testTask));
+  }
 }
