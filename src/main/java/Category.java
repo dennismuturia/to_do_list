@@ -11,7 +11,7 @@ public class Category {
     mName = name;
     instances.add(this);
     mId = instances.size();
-     mTasks = new ArrayList<Task>();
+    mTasks = new ArrayList<Task>();
   }
 
   public String getName() {
@@ -29,13 +29,17 @@ public class Category {
   public int getId() {
     return mId;
   }
-  public static Category find(int id) {
-    return instances.get(id - 1);
-  }
   public List<Task> getTasks() {
     return mTasks;
   }
   public void addTask(Task task) {
     mTasks.add(task);
+  }
+  public static Category find(int id){
+    try {
+      return instances.get(id - 1);
+    }catch (IndexOutOfBoundsException exception){
+      return null;
+    }
   }
 }

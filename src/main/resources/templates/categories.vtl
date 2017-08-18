@@ -1,7 +1,12 @@
+#if($category)
 <h1>All categories</h1>
 <ul>
   #foreach ($category in $categories)
     <li><a href="/categories/$category.getId()">$category.getName()</a></li>
   #end
 </ul>
-<a href="/categories/new">Add New Category</a>
+#else
+  <em><p>Oops! We can't seem to find that Category.</p></em>
+#end
+<a href="/categories/$category.getId()/tasks/new">Add a new task</a>
+<a href="/categories">All categories</a>
